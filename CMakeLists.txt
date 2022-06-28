@@ -30,4 +30,8 @@ add_custom_target(
     WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
 )
 
-add_executable(Z_DUMMY_TARGET ${SRC_LIST})
+add_executable(Z_DUMMY_TARGET ${SRC_LIST}
+        lib/Microcontroller/src/Microcontroller.h
+        lib/Microcontroller/src/Types/Avr/Avr.cpp
+        lib/Microcontroller/src/Types/Avr/Avr.h
+        lib/Microcontroller/src/Adc/Adc.h lib/Microcontroller/src/Types/Avr/AvrAdc.cpp lib/Microcontroller/src/Types/Avr/AvrAdc.h)
