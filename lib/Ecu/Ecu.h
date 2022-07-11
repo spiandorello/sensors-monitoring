@@ -1,8 +1,6 @@
 #ifndef MCC_MONITORING_ECU_H
 #define MCC_MONITORING_ECU_H
 
-#include <Arduino.h>
-
 #include <Array.h>
 #include <Microcontroller.h>
 

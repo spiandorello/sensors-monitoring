@@ -1,5 +1,4 @@
 #include "LM35.h"
-#include <Arduino.h>
 
 uint16_t LM35::getTemperature(Microcontroller* mcc) const {
     uint16_t data = mcc->readAdc(_adcPosition);

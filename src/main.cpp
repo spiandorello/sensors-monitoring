@@ -1,17 +1,15 @@
-#include <Arduino.h>
-
 #include <avr/io.h>
 #include <util/delay.h>
 
 #include <Ecu.h>
 #include <Sensor.h>
 #include <Microcontroller.h>
+#include "../lib/Microcontroller/src/Types/Avr/Communication/Serial/SerialProtocol.h"
 
 int main() {
-    Serial.begin(115200);
-
     Microcontroller* mcc = new Avr();
     mcc->init();
+    mcc->setCommunicationBus(new SerialProtocol(115200));
 
     Ecu* ecu = new Ecu(mcc);
 
