@@ -1,11 +1,19 @@
 #include "Avr.h"
 
 Microcontroller* Avr::init() {
-    _adcs.push_back(new AvrAdc());
+    this->initializeAdcs();
 
     return (Microcontroller *) this;
 }
 
 uint16_t Avr::readAdc(uint8_t pos) {
-    return _adcs.at(pos)->read();
+    return _adcs[pos]->read();
+}
+
+void Avr::initializeAdcs() {
+    auto adc = new AvrAdc(5, 128);
+    adc->setPrescaler(128);
+    adc->setReadChanel(REFS0);
+
+    _adcs[0] = adc;
 }

@@ -34,4 +34,14 @@ add_executable(Z_DUMMY_TARGET ${SRC_LIST}
         lib/Microcontroller/src/Microcontroller.h
         lib/Microcontroller/src/Types/Avr/Avr.cpp
         lib/Microcontroller/src/Types/Avr/Avr.h
-        lib/Microcontroller/src/Adc/Adc.h lib/Microcontroller/src/Types/Avr/AvrAdc.cpp lib/Microcontroller/src/Types/Avr/AvrAdc.h)
+        lib/Microcontroller/src/Adc/Adc.h
+        lib/Microcontroller/src/Types/Avr/AvrAdc.cpp
+        lib/Microcontroller/src/Types/Avr/AvrAdc.h
+        lib/Sensor/src/Sensor.h
+        lib/Sensor/src/Types/Temperature/Temperature.cpp
+        lib/Sensor/src/Types/Temperature/Temperature.h
+        lib/Sensor/src/Types/Temperature/TemperatureInterface.h
+        lib/Sensor/src/Types/Temperature/Strategy/LM35/LM35.cpp
+        lib/Sensor/src/Types/Temperature/Strategy/LM35/LM35.h
+        lib/Ecu/Ecu.cpp lib/Ecu/Ecu.h
+        )

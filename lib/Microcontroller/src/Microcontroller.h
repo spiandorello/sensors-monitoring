@@ -1,6 +1,8 @@
 #ifndef MCC_MONITORING_MICROCONTROLLER_H
 #define MCC_MONITORING_MICROCONTROLLER_H
 
+#include <stdint.h>
+
 class Microcontroller {
 public:
     virtual Microcontroller* init() { return nullptr; };

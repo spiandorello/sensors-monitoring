@@ -5,3 +5,14 @@ uint16_t AvrAdc::read() const {
 
     return ADC;
 }
+
+void AvrAdc::setReadChanel(uint8_t channel) {
+    setAdMux(channel);
+}
+
+void AvrAdc::setPrescaler(uint8_t scale) {
+    if (scale == AvrAdc::SCALE_128) {
+        ADCS->ADC_SRA |=
+                SET(ADPS0) | SET(ADPS1) | SET(ADPS2);
+    }
+}

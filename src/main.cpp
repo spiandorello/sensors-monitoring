@@ -3,31 +3,25 @@
 #include <avr/io.h>
 #include <util/delay.h>
 
-#include <bits.h>
-#include <gpio.h>
-
+#include <Ecu.h>
+#include <Sensor.h>
 #include <Microcontroller.h>
 
-#define LED_PORT GPIO_B
-#define LED_PIN	PB0
-
-#define BTN_PORT GPIO_B
-#define BTN_PIN PB1
-
 int main() {
-    Serial.begin(9600);
-    LED_PORT->DDR = SET(LED_PIN);
-    BTN_PORT->PORT = SET(BTN_PIN);
+    Serial.begin(115200);
 
-    Microcontroller * mcc = new Avr();
+    Microcontroller* mcc = new Avr();
+    mcc->init();
+
+    Ecu* ecu = new Ecu(mcc);
+
+    TemperatureInterface* sensor = new LM35("LM35_1", 0);
+    Sensor* temperature = new Temperature(sensor);
+
+    ecu->addSensor(temperature);
 
     while (true) {
-        mcc->init();
-        Serial.println(mcc->readAdc(0));
-
-        GPIO_SetBit(LED_PORT, LED_PIN);
-        _delay_ms(1000);
-        GPIO_ClrBit(LED_PORT, LED_PIN);
+        ecu->read();
         _delay_ms(1000);
     }
 }
