@@ -15,11 +15,11 @@ int main() {
     TemperatureInterface* sensor = new LM35("LM35_1", Avr::ADC_0);
     Sensor* temperature = new Temperature(sensor);
 
-    TemperatureInterface* sensor2 = new LM35("LM35_2", Avr::ADC_1);
-    Sensor* temperature2 = new Temperature(sensor2);
+//    TemperatureInterface* sensor2 = new LM35("LM35_2", Avr::ADC_1);
+//    Sensor* temperature2 = new Temperature(sensor2);
 
     ecu->addSensor(temperature);
-    ecu->addSensor(temperature);
+//    ecu->addSensor(temperature2);
 
     while (true) {
         ecu->read();
