@@ -8,9 +8,6 @@ String Temperature::getType() const {
     return "Temperature";
 }
 
-/**
- * Todo Heree
- */
 uint16_t Temperature::fetchData() const {
     return _strategy->getTemperature(_mcc);
 }

@@ -1,6 +1,7 @@
 #ifndef MCC_MONITORING_ECU_H
 #define MCC_MONITORING_ECU_H
 
+#include <WString.h>
 #include <Array.h>
 #include <Microcontroller.h>
 

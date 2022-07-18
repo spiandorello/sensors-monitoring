@@ -3,7 +3,7 @@
 uint16_t AvrAdc::read() const {
     while(!TST_BIT(ADCS->ADC_SRA, ADIF));
 
-    return ADC;
+    return (ADC / 1023) * _voltage;
 }
 
 void AvrAdc::setReadChanel(uint8_t channel) {

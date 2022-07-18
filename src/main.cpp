@@ -4,7 +4,6 @@
 #include <Ecu.h>
 #include <Sensor.h>
 #include <Microcontroller.h>
-#include "../lib/Microcontroller/src/Types/Avr/Communication/Serial/SerialProtocol.h"
 
 int main() {
     Microcontroller* mcc = new Avr();
@@ -13,9 +12,13 @@ int main() {
 
     Ecu* ecu = new Ecu(mcc);
 
-    TemperatureInterface* sensor = new LM35("LM35_1", 0);
+    TemperatureInterface* sensor = new LM35("LM35_1", Avr::ADC_0);
     Sensor* temperature = new Temperature(sensor);
 
+    TemperatureInterface* sensor2 = new LM35("LM35_2", Avr::ADC_1);
+    Sensor* temperature2 = new Temperature(sensor2);
+
+    ecu->addSensor(temperature);
     ecu->addSensor(temperature);
 
     while (true) {

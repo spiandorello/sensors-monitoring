@@ -1,6 +1,7 @@
 #ifndef MCC_MONITORING_MICROCONTROLLER_H
 #define MCC_MONITORING_MICROCONTROLLER_H
 
+#include <String.h>
 #include <stdint.h>
 #include "./CommunicationProtocol/src/CommunicationProtocol.h"
 
@@ -17,6 +18,12 @@ public:
     };
 
     Microcontroller* sendData(uint16_t data) {
+        this->_communicationBus->send(data);
+
+        return this;
+    }
+
+    Microcontroller* sendData(String data) {
         this->_communicationBus->send(data);
 
         return this;

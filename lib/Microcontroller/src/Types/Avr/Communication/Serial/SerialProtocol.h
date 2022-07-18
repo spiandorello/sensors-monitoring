@@ -1,7 +1,9 @@
 #ifndef MCC_MONITORING_SERIALPROTOCOL_H
 #define MCC_MONITORING_SERIALPROTOCOL_H
 
+#include <WString.h>
 #include "../../../../CommunicationProtocol/src/CommunicationProtocol.h"
+
 
 class SerialProtocol : public CommunicationProtocol {
 public:
@@ -10,6 +12,7 @@ public:
     }
 
     void send(uint16_t data) override;
+    void send(String data) override;
 };
 
 #endif //MCC_MONITORING_SERIALPROTOCOL_H

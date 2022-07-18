@@ -13,7 +13,7 @@ private:
 
 public:
     explicit LM35(String name, uint8_t adcPosition) {
-        _name = "LM53";
+        _name = name;
         _adcPosition = adcPosition;
     }
 

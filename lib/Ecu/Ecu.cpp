@@ -9,7 +9,31 @@ Ecu* Ecu::addSensor(Sensor *sensor) {
 
 Ecu* Ecu::read() {
     for (Sensor* sensor : _sensors) {
-        _mcc->sendData(sensor->fetchData());
+
+        String data = "{";
+        data.concat("\"Type\": ");
+
+        data.concat("\"");
+        data.concat(sensor->getType());
+        data.concat("\"");
+        data.concat(", ");
+
+        data.concat("\"Name\": ");
+
+        data.concat("\"");
+        data.concat(sensor->getName());
+        data.concat("\"");
+        data.concat(", ");
+
+        data.concat("\"Value\": ");
+
+        data.concat("\"");
+        data.concat(sensor->fetchData());
+        data.concat("\"");
+
+        data.concat("}");
+
+        _mcc->sendData(data);
     }
 
     return this;
